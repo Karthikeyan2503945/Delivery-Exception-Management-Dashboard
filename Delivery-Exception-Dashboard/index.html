@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreyAtom Logistics Dashboard</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <img src="assets/images/checklist.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+            <h1>GreyAtom Logistics - Internal Operations</h1>
+        </div>
+    </nav>
+
+    <header class="highlight">
+        <h1>Delivery Exception Management Dashboard</h1>
+        <p>📝 <strong>Record seamlessly.</strong> &nbsp;|&nbsp; 
+            📊 <strong>Manage clearly.</strong> &nbsp;|&nbsp; 
+            🤝 <strong>Resolve together.</strong>
+        </p>
+        <div class="metrics">
+            <div class="stat-card">
+                <h3>Issues Found</h3>
+                <h2 id="open-count">0</h2>
+            </div>
+            <div class="stat-card">
+                <h3>Issues Resolved</h3>
+                <h2 id="resolved-count">0</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="report-form" class="card">
+            <h2>Report Delivery Exception</h2>
+            <form id="issue-form">
+                <div class="form-group">
+                    <label for="del-id">Delivery ID <span class="required">*</span></label>
+                    <input type="text" id="del-id" required placeholder="e.g., 12345">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-name">Customer Name <span class="required">*</span></label>
+                    <input type="text" id="customer-name" required placeholder="Enter Customer Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="issue-type">Issue Type <span class="required">*</span></label>
+                    <select id="issue-type" required>
+                        <option value="" disabled selected>Select Issue Type</option>
+                        <option value="Address Not Found">Address Not Found</option> 
+                        <option value="Customer Not Available">Customer Not Available</option> 
+                        <option value="Payment Issue">Payment Issue</option> 
+                        <option value="Package Damaged">Package Damaged</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Priority <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="priority" value="Low" required> Low</label>
+                        <label><input type="radio" name="priority" value="Medium"> Medium</label>
+                        <label><input type="radio" name="priority" value="High"> High</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Add any relevant details ..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit Issue</button>
+            </form>
+        </section>
+
+        <section id="dashboard" class="card">
+            <h2>Exceptions Dashboard</h2>
+            
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="filter-type">Filter by Issue Type:</label>
+                    <select id="filter-type">
+                        <option value="All">All Issues</option>
+                        <option value="Address Not Found">Address Not Found</option>
+                        <option value="Customer Not Available">Customer Not Available</option>
+                        <option value="Payment Issue">Payment Issue</option>
+                        <option value="Package Damaged">Package Damaged</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-status">Filter by Status:</label>
+                    <select id="filter-status">
+                        <option value="All">All</option>
+                        <option value="Open">Open</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Delivery ID</th>
+                            <th>Customer Name</th>
+                            <th>Issue Type</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 GreyAtom Logistics Pvt. Ltd. Internal Tools Team.</p>
+    </footer>
+
+    <script src="javascript/scripts.js"></script>
+</body>
+</html>
