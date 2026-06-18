@@ -283,23 +283,23 @@ input[type="text"]:focus, select:focus, textarea:focus {
 
 /* Table Styles */
 .table-responsive {
-    /* fixed height to ensure the container scrolls when rows grow */
+
     height: 420px;
     max-height: 420px;
     overflow-y: auto;
-    overflow-x: hidden; /* only vertical scrolling */
-    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+    overflow-x: hidden; 
+    -webkit-overflow-scrolling: touch; 
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background-clip: padding-box; /* keep rounded corners while scrolling */
+    background-clip: padding-box; 
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: 0; /* Remove margin to avoid gaps with sticky header */
-    table-layout: auto; /* allow columns to size naturally */
+    margin-top: 0;  
+    table-layout: auto;  
 }
 
 thead, tbody, tr, th, td {
